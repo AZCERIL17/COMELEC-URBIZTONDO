@@ -16,7 +16,7 @@ export function Footer() {
               <ComelecLogo className="w-10 h-10 shrink-0" />
               <div>
                 <div className="text-base font-black text-white tracking-tight">
-                  COMELEC Urbiztondo
+                  COMELEC URBIZTONDO e-Gov Hub
                 </div>
                 <div className="text-xs font-semibold text-sky-400">
                   Office of the Election Officer • Pangasinan District 2
@@ -25,7 +25,7 @@ export function Footer() {
             </div>
 
             <p className="text-slate-400 text-xs sm:text-sm max-w-md leading-relaxed">
-              Serving the 21 barangays of Urbiztondo, Pangasinan with transparent, accessible, and certified frontline electoral services.
+              Your Digital Gateway to Local Government Services — <span className="text-slate-300 font-semibold">Serbisyong Tapat, Halalang Maayos</span>. Connecting communities with modern, secure, and transparent electoral services for all 21 barangays of Urbiztondo.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 pt-2">

@@ -1,4 +1,7 @@
-# COMELEC Connect • Urbiztondo, Pangasinan
+# COMELEC URBIZTONDO e-Gov Hub • Pangasinan
+
+**Your Digital Gateway to Local Government Services**
+*Serbisyong Tapat, Halalang Maayos — Connecting communities with modern, secure, and transparent electoral services for all 21 barangays.*
 
 Official municipal electoral portal for the **Commission on Elections (COMELEC) — Office of the Election Officer, Urbiztondo, Pangasinan** (District 2, Region I).
 

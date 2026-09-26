@@ -99,10 +99,10 @@ export function Header({ onOpenBooking, onOpenChecklist }: HeaderProps) {
             <div className="flex flex-col justify-center min-w-0">
               <div className="flex items-baseline gap-1.5 whitespace-nowrap leading-tight">
                 <span className="text-base sm:text-lg font-black tracking-tight text-[#0b3b60]">
-                  COMELEC CONNECT
+                  COMELEC URBIZTONDO
                 </span>
                 <span className="text-xs sm:text-sm font-extrabold text-sky-600">
-                  Urbiztondo
+                  e-Gov Hub
                 </span>
               </div>
               <span className="text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase text-slate-500 whitespace-nowrap mt-0.5 leading-none">

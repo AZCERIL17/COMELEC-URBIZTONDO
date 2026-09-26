@@ -67,13 +67,13 @@ export function Hero({ onOpenBooking, onNavigateForms, onNavigateCalendar }: Her
           {/* Left Column: Hero Title & Key Actions (Matches Screenshot_1) */}
           <div className="lg:col-span-7 pt-2">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#0a2e4c] tracking-tight leading-[1.08] mb-4">
-              COMELEC CONNECT
-              <span className="block text-[#0284c7]">Urbiztondo</span>
-              <span className="block text-[#0a2e4c]">Pangasinan</span>
+              COMELEC URBIZTONDO
+              <span className="block text-[#0284c7]">e-Gov Hub</span>
             </h1>
 
             <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl mb-8">
-              <span className="font-semibold text-slate-900">Serbisyong Tapat, Halalang Maayos</span> — Connecting communities with modern, secure, and transparent electoral services for all 21 barangays.
+              <span className="font-bold text-slate-900 block mb-1">Your Digital Gateway to Local Government Services</span>
+              <span className="font-semibold text-sky-800">Serbisyong Tapat, Halalang Maayos</span> — Connecting communities with modern, secure, and transparent electoral services for all 21 barangays.
             </p>
 
             {/* Quick Action Badges / CTAs (Matches Screenshot_1) */}
