@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Mail, Facebook, ExternalLink, Menu, X, Check, Copy, Calendar, ShieldCheck } from "lucide-react";
+import { Mail, Facebook, ExternalLink, Menu, X, Check, Copy, Calendar, ShieldCheck, CalendarCheck, ChevronDown } from "lucide-react";
 import { ComelecLogo } from "./ComelecLogo";
 
 interface HeaderProps {
@@ -23,17 +23,18 @@ export function Header({ onOpenBooking, onOpenChecklist }: HeaderProps) {
 
   const navLinks = [
     { label: "Home", href: "#home" },
+    { label: "Quick Services", href: "#quick-services" },
     { label: "Announcements", href: "#announcements" },
     { label: "Calendar", href: "#calendar" },
     { label: "FAQ", href: "#faq" },
     { label: "Forms", href: "#forms" },
-    { label: "Barangays", href: "#barangays" },
-    { label: "Our Officials", href: "#officials" },
+    { label: "21 Barangays", href: "#barangays" },
+    { label: "Officials", href: "#officials" },
     { label: "Contact", href: "#contact" },
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
+    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs">
       {/* Top GovPH & Municipal Office Official Banner */}
       <div className="bg-[#0b3b60] text-slate-100 text-xs px-4 py-1.5 border-b border-blue-900/50">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
@@ -49,19 +50,19 @@ export function Header({ onOpenBooking, onOpenChecklist }: HeaderProps) {
           </div>
 
           <div className="flex items-center gap-3">
-            {/* Official designated contact URL / Email requested by user */}
+            {/* Official designated contact URL / Email */}
             <div className="flex items-center gap-1 bg-white/10 hover:bg-white/15 px-2 py-0.5 rounded text-[11px] transition-colors">
               <Mail className="w-3 h-3 text-amber-300 shrink-0" />
               <a
                 href={`mailto:${officialEmail}?subject=Inquiry%20to%20COMELEC%20Urbiztondo`}
-                className="hover:underline font-mono text-blue-100"
+                className="hover:underline font-mono text-blue-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-300"
                 title="Click to send email"
               >
                 {officialEmail}
               </a>
               <button
                 onClick={handleCopyEmail}
-                className="ml-1 text-slate-300 hover:text-white p-0.5 rounded cursor-pointer"
+                className="ml-1 text-slate-300 hover:text-white p-0.5 rounded cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-300"
                 title="Copy email address"
                 aria-label="Copy official email"
               >
@@ -69,12 +70,12 @@ export function Header({ onOpenBooking, onOpenChecklist }: HeaderProps) {
               </button>
             </div>
 
-            {/* Official Facebook Link requested by user */}
+            {/* Official Facebook Link */}
             <a
               href={facebookUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-[11px] font-medium text-amber-300 hover:text-amber-200 transition-colors bg-blue-900/60 hover:bg-blue-900 px-2 py-0.5 rounded border border-blue-700/50"
+              className="inline-flex items-center gap-1 text-[11px] font-medium text-amber-300 hover:text-amber-200 transition-colors bg-blue-900/60 hover:bg-blue-900 px-2 py-0.5 rounded border border-blue-700/50 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-300"
               title="Official Facebook Page of COMELEC Urbiztondo"
             >
               <Facebook className="w-3 h-3 text-[#1877F2]" />
@@ -85,86 +86,112 @@ export function Header({ onOpenBooking, onOpenChecklist }: HeaderProps) {
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
+      {/* Main Navigation Bar (Clean, non-overlapping, shrink-0 brand lockup) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Brand Lockup (Matches Screenshot_1) */}
-          <a href="#home" className="flex items-center gap-3 group">
-            <ComelecLogo className="w-12 h-12" />
-            <div className="flex flex-col">
-              <div className="flex items-center gap-1.5 flex-wrap">
-                <span className="text-lg sm:text-xl font-extrabold tracking-tight text-[#0b3b60]">
+        <div className="flex items-center justify-between min-h-[4.25rem] sm:min-h-[4.75rem] py-2.5 gap-4">
+          
+          {/* Brand Lockup: Strictly shrink-0, whitespace-nowrap, zero overlap */}
+          <a
+            href="#home"
+            className="flex items-center gap-2.5 sm:gap-3.5 shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 rounded-xl py-1"
+          >
+            <ComelecLogo className="w-10 h-10 sm:w-11 sm:h-11 shrink-0 drop-shadow-2xs" />
+            <div className="flex flex-col justify-center min-w-0">
+              <div className="flex items-baseline gap-1.5 whitespace-nowrap leading-tight">
+                <span className="text-base sm:text-lg font-black tracking-tight text-[#0b3b60]">
                   COMELEC CONNECT
                 </span>
-                <span className="text-sm sm:text-base font-bold text-sky-600">
-                  Urbiztondo • Pangasinan
+                <span className="text-xs sm:text-sm font-extrabold text-sky-600">
+                  Urbiztondo
                 </span>
               </div>
-              <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-                Office of the Election Officer
+              <span className="text-[10px] sm:text-[11px] font-semibold tracking-wider uppercase text-slate-500 whitespace-nowrap mt-0.5 leading-none">
+                Office of the Election Officer • Pangasinan
               </span>
             </div>
           </a>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-600">
+          {/* Desktop Nav Links (For wide viewports, never crowding brand lockup) */}
+          <nav className="hidden 2xl:flex items-center gap-4 text-xs xl:text-sm font-semibold text-slate-600">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="hover:text-[#0b3b60] hover:underline underline-offset-8 transition-colors whitespace-nowrap"
+                className="hover:text-[#0b3b60] hover:underline underline-offset-8 transition-colors whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 rounded-md px-1 py-1"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          {/* Actions: Checklist & Book Appointment (Matches Screenshot_1) */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* Medium/Large Compact Nav (for 1024px to 1535px screens) */}
+          <nav className="hidden lg:flex 2xl:hidden items-center gap-3 text-xs font-semibold text-slate-600">
+            <a href="#quick-services" className="hover:text-[#0b3b60] whitespace-nowrap px-1 py-1">Quick Services</a>
+            <a href="#calendar" className="hover:text-[#0b3b60] whitespace-nowrap px-1 py-1">Calendar</a>
+            <a href="#forms" className="hover:text-[#0b3b60] whitespace-nowrap px-1 py-1">Forms</a>
+            <a href="#barangays" className="hover:text-[#0b3b60] whitespace-nowrap px-1 py-1">21 Barangays</a>
+            <a href="#faq" className="hover:text-[#0b3b60] whitespace-nowrap px-1 py-1">FAQ</a>
+          </nav>
+
+          {/* Actions: Checklist & Request Appointment */}
+          <div className="hidden sm:flex items-center gap-2.5 shrink-0">
             <button
               onClick={onOpenChecklist}
-              className="px-3 py-2 text-xs font-semibold text-slate-700 hover:text-[#0b3b60] hover:bg-slate-100 rounded-lg transition-colors border border-slate-200 inline-flex items-center gap-1.5 cursor-pointer"
+              className="px-3 py-2 text-xs font-semibold text-slate-700 hover:text-[#0b3b60] hover:bg-slate-100 rounded-xl transition-colors border border-slate-200 inline-flex items-center gap-1.5 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 shrink-0"
             >
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
-              Requirements
+              <span>Valid IDs</span>
             </button>
             <button
               onClick={onOpenBooking}
-              className="px-5 py-2.5 text-sm font-bold text-white bg-[#0284c7] hover:bg-[#0369a1] active:scale-98 rounded-lg shadow-sm hover:shadow transition-all whitespace-nowrap cursor-pointer inline-flex items-center gap-2"
+              className="px-3.5 sm:px-4 py-2 sm:py-2.5 text-xs font-bold text-white bg-sky-600 hover:bg-sky-700 active:scale-98 rounded-xl shadow-xs hover:shadow transition-all whitespace-nowrap cursor-pointer inline-flex items-center gap-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2 shrink-0"
             >
-              <Calendar className="w-4 h-4" />
-              Book Appointment
+              <CalendarCheck className="w-4 h-4" />
+              <span>Request Appointment</span>
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex items-center gap-2 lg:hidden">
+          {/* Mobile/Tablet Menu Button */}
+          <div className="flex items-center gap-2 2xl:hidden lg:hidden">
             <button
               onClick={onOpenBooking}
-              className="px-3 py-1.5 text-xs font-bold text-white bg-[#0284c7] rounded-lg shadow-xs"
+              className="px-2.5 py-1.5 text-xs font-bold text-white bg-sky-600 rounded-xl shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 shrink-0"
             >
-              Book
+              Request
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 cursor-pointer"
-              aria-label="Toggle navigation"
+              className="p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 shrink-0"
+              aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
+
+          {/* Tablet Hamburger (when on lg to 2xl to access secondary links) */}
+          <div className="hidden lg:flex 2xl:hidden items-center">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+              title="More navigation options"
+              aria-label="More navigation options"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile/Tablet Navigation Dropdown */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-2 shadow-lg">
+        <div className="2xl:hidden border-t border-slate-200 bg-white px-4 py-4 space-y-1.5 shadow-lg animate-in fade-in">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-md text-sm font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-700"
+              className="block px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 hover:bg-sky-50 hover:text-sky-700 transition-colors"
             >
               {link.label}
             </a>
@@ -175,19 +202,20 @@ export function Header({ onOpenBooking, onOpenChecklist }: HeaderProps) {
                 setMobileMenuOpen(false);
                 onOpenChecklist();
               }}
-              className="w-full text-left px-3 py-2 rounded-md text-sm font-semibold text-slate-700 hover:bg-slate-100 flex items-center gap-2"
+              className="w-full text-left px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 hover:bg-slate-100 flex items-center gap-2 cursor-pointer"
             >
               <ShieldCheck className="w-4 h-4 text-emerald-600" />
-              Voter & Candidate Requirements Checklist
+              <span>Voter Valid IDs &amp; Requirements</span>
             </button>
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenBooking();
               }}
-              className="w-full py-2.5 text-center text-sm font-bold text-white bg-[#0284c7] hover:bg-[#0369a1] rounded-lg shadow-xs"
+              className="w-full py-2.5 text-center text-xs sm:text-sm font-bold text-white bg-sky-600 hover:bg-sky-700 rounded-xl shadow-xs flex items-center justify-center gap-2 cursor-pointer"
             >
-              Book Appointment
+              <CalendarCheck className="w-4 h-4" />
+              <span>Request an Appointment</span>
             </button>
           </div>
         </div>

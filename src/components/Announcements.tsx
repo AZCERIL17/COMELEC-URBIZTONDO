@@ -19,7 +19,7 @@ export function Announcements() {
   };
 
   return (
-    <section id="announcements" className="py-12 bg-white border-b border-slate-200/70">
+    <section id="announcements" className="py-12 bg-white border-b border-slate-200/70 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header (Matches Screenshot_2) */}

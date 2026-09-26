@@ -67,7 +67,7 @@ export function BarangaysSection() {
   };
 
   return (
-    <section id="barangays" className="py-14 bg-slate-50 border-b border-slate-200/70">
+    <section id="barangays" className="py-14 bg-slate-50 border-b border-slate-200/70 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header with POP Verification */}

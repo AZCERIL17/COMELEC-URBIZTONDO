@@ -1,6 +1,6 @@
 {
-  "name": "COMELEC Connect Urbiztondo Pangasinan",
-  "description": "Official municipal electoral portal for COMELEC Urbiztondo, Pangasinan. Serving 21 barangays with voter registration, BSKE 2026 calendar, downloadable forms, FAQ, and online appointment booking.",
+  "name": "COMELEC Connect Urbiztondo Pangasinan • Official Electoral Portal",
+  "description": "Official municipal electoral portal for COMELEC Urbiztondo, Pangasinan. Certified Project of Precincts (POP) directory for 21 barangays, Republic Act No. 12326 BSKE statutory advisory, official COMELEC forms repository, and appointment service requests.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

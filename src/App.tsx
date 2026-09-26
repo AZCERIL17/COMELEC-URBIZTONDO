@@ -6,6 +6,7 @@
 import { useState } from "react";
 import { Header } from "./components/Header";
 import { Hero } from "./components/Hero";
+import { QuickServicesSection } from "./components/QuickServicesSection";
 import { Announcements } from "./components/Announcements";
 import { ElectionCalendar } from "./components/ElectionCalendar";
 import { FaqSection } from "./components/FaqSection";
@@ -28,12 +29,21 @@ export default function App() {
     const el = document.getElementById(sectionId);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
+      el.focus({ preventScroll: true });
     }
   };
 
   return (
     <div className={`min-h-screen bg-slate-50 flex flex-col ${isLargeFont ? "text-base" : "text-sm"}`}>
       
+      {/* Accessible Skip-to-Content Link */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2.5 focus:bg-[#0b3b60] focus:text-white focus:font-bold focus:rounded-xl focus:shadow-xl focus:ring-2 focus:ring-amber-400 focus:outline-none"
+      >
+        Skip to main content
+      </a>
+
       {/* Accessibility / Dialect Bar */}
       <div className="bg-slate-900 text-slate-300 text-[11px] px-4 py-1 flex items-center justify-between border-b border-slate-800">
         <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
@@ -43,14 +53,14 @@ export default function App() {
           <div className="flex items-center gap-3 shrink-0 ml-2">
             <button
               onClick={() => setIsLargeFont(!isLargeFont)}
-              className="text-slate-300 hover:text-white px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 transition-colors cursor-pointer"
+              className="text-slate-300 hover:text-white px-2 py-0.5 rounded bg-white/10 hover:bg-white/20 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-300"
               title="Toggle font size for better readability"
             >
               Text Size: {isLargeFont ? "Large" : "Standard"}
             </button>
             <button
               onClick={() => setIsChecklistOpen(true)}
-              className="text-amber-300 hover:text-amber-200 hidden sm:inline underline"
+              className="text-amber-300 hover:text-amber-200 hidden sm:inline underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-amber-300 rounded"
             >
               Valid IDs Checklist
             </button>
@@ -65,46 +75,53 @@ export default function App() {
       />
 
       {/* Main Content Sections */}
-      <main className="flex-1">
-        {/* Hero Section (Matches Screenshot_1) */}
+      <main id="main-content" tabIndex={-1} className="flex-1 focus:outline-none">
+        {/* Hero Section */}
         <Hero
           onOpenBooking={() => setIsBookingOpen(true)}
           onNavigateForms={() => scrollToSection("forms")}
           onNavigateCalendar={() => scrollToSection("calendar")}
         />
 
-        {/* Announcements Section (Matches Screenshot_2) */}
+        {/* New "What do you need today?" Quick Services Section */}
+        <QuickServicesSection
+          onOpenBooking={() => setIsBookingOpen(true)}
+          onOpenChecklist={() => setIsChecklistOpen(true)}
+          onNavigateSection={scrollToSection}
+        />
+
+        {/* Announcements Section */}
         <Announcements />
 
-        {/* Election Calendar 2026 (Matches Screenshot_3) */}
+        {/* Election Calendar & RA 12326 Postponement Advisory */}
         <ElectionCalendar />
 
-        {/* Frequently Asked Questions (Matches Screenshot_4) */}
+        {/* Frequently Asked Questions */}
         <FaqSection />
 
-        {/* Downloadable Forms (Matches Screenshot_5) */}
+        {/* Official Forms Section */}
         <FormsSection />
 
-        {/* 21 Barangays Interactive Directory & Gallery (Matches Screenshot_6) */}
+        {/* 21 Barangays Interactive Directory & Gallery */}
         <BarangaysSection />
 
-        {/* Official Embossed Seal of COMELEC Urbiztondo (Matches Screenshot_19) */}
+        {/* Official Embossed Seal of COMELEC Urbiztondo */}
         <OfficialSealShowcase />
 
-        {/* Our Officials (Matches Screenshot_7, Screenshot_8, Screenshot_9) */}
+        {/* Our Officials */}
         <OfficialsSection />
 
-        {/* Visit Us & Book Appointment (Matches Screenshot_7) */}
+        {/* Visit Us & Request an Appointment */}
         <VisitAppointmentSection onOpenBooking={() => setIsBookingOpen(true)} />
 
         {/* Facebook Page & Community Feed Link */}
         <FacebookFeedSection />
       </main>
 
-      {/* Official Footer (Matches Screenshot_7) */}
+      {/* Official Footer */}
       <Footer />
 
-      {/* Interactive Appointment Booking Modal */}
+      {/* Interactive Appointment Service Request Modal */}
       <AppointmentModal
         isOpen={isBookingOpen}
         onClose={() => setIsBookingOpen(false)}

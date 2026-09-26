@@ -16,7 +16,7 @@ export function Hero({ onOpenBooking, onNavigateForms, onNavigateCalendar }: Her
   const officialEmail = "pangasinan.urbiztondo@comelec.gov.ph";
 
   return (
-    <section id="home" className="relative pt-6 pb-12 overflow-hidden bg-gradient-to-b from-sky-50/70 via-white to-slate-50">
+    <section id="home" className="relative pt-8 sm:pt-10 pb-12 overflow-hidden bg-gradient-to-b from-sky-50/70 via-white to-slate-50 scroll-mt-24">
       {/* Subtle background civic pattern */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.03] bg-[radial-gradient(#0b3b60_1px,transparent_1px)] [background-size:24px_24px]" />
 
@@ -79,26 +79,29 @@ export function Hero({ onOpenBooking, onNavigateForms, onNavigateCalendar }: Her
             {/* Quick Action Badges / CTAs (Matches Screenshot_1) */}
             <div className="flex flex-wrap gap-3 mb-10">
               <button
+                type="button"
                 onClick={onOpenBooking}
-                className="px-6 py-3.5 bg-[#0284c7] hover:bg-[#0369a1] text-white text-sm font-bold rounded-2xl shadow-md hover:shadow-lg transition-all flex items-center gap-2 cursor-pointer group"
+                className="px-6 py-3.5 bg-sky-600 hover:bg-sky-700 text-white text-sm font-bold rounded-2xl shadow-md hover:shadow-lg transition-all flex items-center gap-2 cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
               >
-                <span>Book Priority Appointment</span>
+                <span>Request an Appointment</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </button>
 
               <button
+                type="button"
                 onClick={onNavigateForms}
-                className="px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-800 text-sm font-bold rounded-2xl border border-slate-300/80 shadow-2xs hover:shadow-xs transition-all flex items-center gap-2 cursor-pointer"
+                className="px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-800 text-sm font-bold rounded-2xl border border-slate-300/80 shadow-2xs hover:shadow-xs transition-all flex items-center gap-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
               >
-                <span>Download Forms (CEF-1)</span>
+                <span>Official Forms (CEF-1)</span>
               </button>
 
               <button
+                type="button"
                 onClick={onNavigateCalendar}
-                className="px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-800 text-sm font-bold rounded-2xl border border-slate-300/80 shadow-2xs hover:shadow-xs transition-all flex items-center gap-2 cursor-pointer"
+                className="px-6 py-3.5 bg-white hover:bg-slate-50 text-slate-800 text-sm font-bold rounded-2xl border border-slate-300/80 shadow-2xs hover:shadow-xs transition-all flex items-center gap-2 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
               >
                 <Calendar className="w-4 h-4 text-sky-600" />
-                <span>Election Timeline</span>
+                <span>Election Timeline &amp; RA 12326</span>
               </button>
             </div>
 
